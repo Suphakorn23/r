@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อวยพรวันเกิดแฟน</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f7f7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #f59e42;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 22px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+        input[type="file"] {
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+        .submit-button {
+            background-color: #f59e42;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #e48d2b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>สุขสันต์วันเกิดแฟนที่รัก!</h1>
+        <p class="message">ขอให้วันเกิดปีนี้เต็มไปด้วยความสุข ความรัก และความสำเร็จในทุกๆ ด้านของชีวิตนะคะ/ครับ ขอให้เรามีช่วงเวลาที่ดีร่วมกันตลอดไป!</p>
+        
+        <div class="image-container" id="imageContainer">
+            <img src="https://via.placeholder.com/500" id="image" alt="Birthday Image">
+        </div>
+
+        <input type="file" id="imageInput" accept="image/*">
+        
+        <button class="submit-button" onclick="changeImage()">อัปโหลดภาพ</button>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById("imageInput");
+        const imageContainer = document.getElementById("imageContainer");
+        const image = document.getElementById("image");
+
+        // ฟังก์ชันเปลี่ยนภาพ
+        function changeImage() {
+            const file = imageInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
